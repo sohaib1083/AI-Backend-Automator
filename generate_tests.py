@@ -5,7 +5,7 @@ import json
 
 # Load environment variables
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GROQ_MODEL = "llama3-70b-8192"
+GROQ_MODEL = "meta-llama/llama-4-maverick-17b-128e-instruct"
 ROUTES_FILE = "app/routes.py"
 TEST_FILE = "test_routes.py"
 
