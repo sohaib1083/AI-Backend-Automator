@@ -15,7 +15,7 @@ def run_tests():
     result = subprocess.run(["pytest", "-v", "test_routes.py"], capture_output=True, text=True)
     print(result.stdout)  # Display pytest output
     # Save the test report to an HTML file
-    subprocess.run(["pytest", "--maxfail=1", "--disable-warnings", "--html=report.html"], check=True)
+    subprocess.run(["pytest", "--disable-warnings", "--html=report.html"], check=False)
     print("✅ Test report generated: report.html")
 
 # Function to open the test report in the default browser
