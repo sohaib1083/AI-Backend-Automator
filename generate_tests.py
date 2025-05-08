@@ -39,6 +39,8 @@ Function:
 {code}
 
 Tests should use the 'client' fixture from pytest-flask.
+Use 'response.get_json(silent=True)' to safely parse JSON.
+
 Only return Python code in this format:
 
 # TEST_FOR: {route}
