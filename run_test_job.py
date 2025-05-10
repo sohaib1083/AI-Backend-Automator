@@ -62,8 +62,8 @@ def main():
     # Step 3: Run tests with coverage
     run_coverage()
 
-    # Open coverage report
-    open_coverage_report()
+    if not os.getenv("CI"):  # GitHub Actions sets CI=true
+        open_test_report()
 
 if __name__ == "__main__":
     main()

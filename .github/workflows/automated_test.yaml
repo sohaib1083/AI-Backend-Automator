@@ -1,9 +1,10 @@
 name: automated test generation
+
 on: 
   push:
     branches:
       - main
-  
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -22,11 +23,21 @@ jobs:
           pip install -r requirements.txt
       
       - name: Export Secrets to environment
-        run: |
-          echo "GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}" >> $GITHUB_ENV
+        run: echo "GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}" >> $GITHUB_ENV
 
-      - name: Generate Tests and Test Report
+      - name: Generate Tests and Reports
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: |
-          python run_test_job.py
+        run: python run_test_job.py
+
+      - name: Upload HTML test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: report.html
+
+      - name: Upload HTML coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: htmlcov/
