@@ -1,5 +1,5 @@
 # Ignore Environment Files
 .venv
 .env
-*.pyc
+*.pyc*
 .coverage
