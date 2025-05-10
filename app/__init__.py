@@ -9,6 +9,6 @@ def create_app():
     app.add_url_rule('/api/add', 'add', add, methods=['POST'])
     app.add_url_rule('/api/subtract', 'subtract', subtract, methods=['POST'])
     app.add_url_rule('/api/mult', 'mult', mult, methods=['POST'])
-    app.add_url_rule('/api/divide', 'divide', divide, methods=['POST'])
+    # app.add_url_rule('/api/divide', 'divide', divide, methods=['POST'])
 
     return app

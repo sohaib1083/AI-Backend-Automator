@@ -41,18 +41,18 @@ def mult():
     
     return jsonify({"result": num1 * num2})
 
-@app.route("/api/divide", methods=["POST"])
-def divide():
-    data = request.get_json()
-    try:
-        numerator = int(data['numerator'])
-        denominator = int(data['denominator'])
-        if denominator == 0:
-            return jsonify({"error": "Division by zero"}), 400
-    except (ValueError, TypeError, KeyError):
-        return jsonify({"error": "Invalid input"}), 400
+# @app.route("/api/divide", methods=["POST"])
+# def divide():
+#     data = request.get_json()
+#     try:
+#         numerator = int(data['numerator'])
+#         denominator = int(data['denominator'])
+#         if denominator == 0:
+#             return jsonify({"error": "Division by zero"}), 400
+#     except (ValueError, TypeError, KeyError):
+#         return jsonify({"error": "Invalid input"}), 400
 
-    return jsonify({"result": numerator / denominator})
+#     return jsonify({"result": numerator / denominator})
 
 
 @app.before_request
