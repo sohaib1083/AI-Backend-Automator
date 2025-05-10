@@ -23,8 +23,10 @@ jobs:
       
       - name: Export Secrets to environment
         run: |
-          echo "export GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}" >> $GITHUB_ENV
+          echo "GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}" >> $GITHUB_ENV
 
       - name: Generate Tests and Test Report
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
           python run_test_job.py
